@@ -1,0 +1,77 @@
+			<!-- 
+				
+				style="background: #0088cc;"
+				
+				<th style="text-align:center;">Beacon</th>
+		   		<th style="padding: 5px; width: 80px; text-align:center;">Liczba Klientow</th>
+		   		
+				onclick= "sendAdres('<c:out value="${row.Adres}"/>')" 
+				<sql:query dataSource="${snapshot}" var="beacon">
+							SELECT NAME FROM Beacon where ID_ODD = <c:out value="${row.ID_ODD}"/>;
+				</sql:query>
+				<td>
+					<c:forEach var="bea" items="${beacon.rows}">
+							<c:out value="${bea.NAME}"/> </br>
+					</c:forEach>
+				</td>
+				
+				
+						idUser = db.getIdUser(user.getLogin());
+								db.closeDataBase();
+			-->
+			
+			
+			<sql:query dataSource="${baza}" var="postac">
+			SELECT * from POSTAC where ID_USER = <c:out value="${idUser}"/>;
+		</sql:query>
+		
+		<!-- pobieranie liczby rekordow znajdujacych sie w danym oddziale aby rozszerzac szare tlo  -->			
+		<sql:query dataSource="${baza}" var="lenght">
+			SELECT COUNT(*) from POSTAC where ID_USER = <c:out value="${idUser}"/>;;
+		</sql:query>
+							
+	<div id="table" class="boxBodyContent">
+		<script>
+			// roszerzanie tla w zalerznosci od liczby rekrodow
+			document.getElementById("table").style.height = '<c:out value="${lenght.rowsByIndex[0][0]*30 +350}" />px';
+		</script>
+		<div id="contentTableDiv" style="float: left; display: inline; width: 600px; padding-left: 250px;">
+					<!-- tworzenie tabeli z lista oddzialow znajdujacych sie w bazie danych -->
+					<table class="CSSTableGenerator" border="1">
+						<tr bgcolor="780030" style="color:#ffffff;">
+					   		<th style="padding: 5px; width: 150px; text-align:center;">IMIE</th>
+					   		<th style="padding: 5px; width: 80px; text-align:center;">KLASA</th>
+						</tr>
+						<c:forEach var="row" items="${postac.rows}">
+						
+							<tr>
+								<td><c:out value="${postac.IMIE}"/></td>
+								<td style="text-align:center;"><c:out value="${postac.KLASA}"/></td>
+							</tr>
+						</c:forEach>
+					</table>
+    				<div style="float:left;display:inline-block; margin-top: 12.5px">
+					<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all" style="color:#000000"><span class="ui-icon ui-icon-newwin"></span><b>UTWORZ NAWA POSTAC</b></a></p>
+					</div>
+					<div id="dialog" title="NowaPostac">
+						<form action="DodajPostac" method="post">
+							<div style="margin-left: 20px">
+								Imie:
+								<input type="text" name="imie" />
+								Klasa:
+								<input type="text" name="klasa" />
+							</div>
+							<input class="logowanie" type="submit" value="OK"/>  
+						</form>
+					</div>
+					
+					<p><a href="#" id="dialog-link2" class="ui-state-default ui-corner-all" style="color:#000000;"><span class="ui-icon ui-icon-newwin"></span><b>Dodaj Beacon</b></a></p>
+			
+					<form method="post" action="LogowanieAlior.jsp">
+    					<input id="button" type="submit" value="Wyjdz">
+    				</form>
+        		</div>
+	
+        	</div>
+		</div>
+	</div>
