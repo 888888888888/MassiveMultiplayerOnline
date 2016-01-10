@@ -17,6 +17,7 @@
     <servlet-name>DodajPostac</servlet-name>
     <servlet-class>dataBase.DodajPostac</servlet-class>
   </servlet>
+  
   <servlet>
     <servlet-name>AddToDataBase</servlet-name>
     <servlet-class>javaWeb.serwer.AddToDataBase</servlet-class>
@@ -41,6 +42,7 @@
     <servlet-name>Json</servlet-name>
     <url-pattern>/aliorbank.pl/hades/do/json</url-pattern>
   </servlet-mapping>
+  
   <resource-ref>
     <description>DB Connection</description>
     <res-ref-name>jdbc/UsersDB</res-ref-name>

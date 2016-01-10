@@ -1,3 +1,15 @@
+<servlet>
+  	<servlet-name>GameServlet</servlet-name>
+  	<servlet-class>odArtura.GameServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+   <servlet-name>GameServlet</servlet-name>
+  <url-pattern>/massive/hades/do/game</url-pattern>
+  </servlet-mapping>
+
+
+
 			<!-- 
 				
 				style="background: #0088cc;"

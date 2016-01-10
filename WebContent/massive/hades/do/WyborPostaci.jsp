@@ -136,7 +136,7 @@
 <script>
 //script wysylajacy przekierwanie do gry z informacja jaka postac zostala wybrana
 function sendAdres(j){
-	   window.location.replace("game.jsp?id="+j);
+	   window.location.replace("Game.jsp?id="+j);
 };
 	
 function wyswietlAvatar(i){
@@ -200,7 +200,7 @@ function wyswietlAvatar(i){
 		<sql:setDataSource var="baza" driver="com.mysql.jdbc.Driver"
 			url="jdbc:mysql://127.0.0.1/massive" user="root" password=""/>
 
-<sql:query dataSource="${baza}" var="postac">
+		<sql:query dataSource="${baza}" var="postac">
 			SELECT * from Champion where IDUSER = (SELECT IDUSER FROM User WHERE login = '<c:out value="${sessionScope.user.login}"/>');
 		</sql:query>
 		
@@ -223,8 +223,12 @@ function wyswietlAvatar(i){
 					   		<th style="padding: 5px; width: 80px; text-align:center;">KLASA</th>
 						</tr>
 						<c:forEach var="row" items="${postac.rows}">
-							<tr>
-								<td><ul id="<c:out value="${row.IDAVATAR}"/>"></ul><script>wyswietlAvatar(<c:out value="${row.IDAVATAR}"/>)</script></td>
+							<tr onclick="sendAdres(${row.IDCHAMPION})">
+								<td><ul id="<c:out value="${row.IDAVATAR}"/>"></ul>
+									<script>11
+										wyswietlAvatar(<c:out value="${row.IDAVATAR}"/>)
+									</script>
+								</td>
 								<td><c:out value="${row.IMIE}"/></td>
 								<td style="text-align:center;"><c:out value="${row.KLASA}"/></td>
 							</tr>

@@ -106,6 +106,41 @@ public class ClientDb {
 		return true; 
 	}
 	
+	public void getAvatarById(int id) throws IOException {
+		System.out.println(id);
+		File newFile;
+		FileOutputStream out;
+		InputStream input;
+		byte[] buffer = new byte[2024];
+		
+		try {
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE idAvatar = (SELECT idAvatar FROM champion WHERE idChampion = ?)");
+			statement.setInt(1,id);
+			statement.execute();
+			
+			java.sql.ResultSet resultset = null;
+			resultset = statement.executeQuery();
+			
+			while(resultset.next()){
+				
+				input = resultset.getBinaryStream("src");
+				
+				newFile = new File("AvatarCurrent.png");
+				out = new FileOutputStream(newFile);
+				
+				while (input.read(buffer) > 0){
+					
+					out.write(buffer);
+				}
+			}
+			
+			System.out.println("przeszlo!");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//pobieranie avatorow z bazy danych
 	public void getAvatars() throws IOException{
 		
@@ -258,5 +293,11 @@ public class ClientDb {
 //			}	
 //		}
 //	}
-		
+//		
+//	public static void main(String[] arq) throws IOException {
+//		
+//		ClientDb db = new ClientDb();
+//		db.getAvatarById(9);
+//		
+//	}
 }

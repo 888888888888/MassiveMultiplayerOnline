@@ -39,7 +39,6 @@ public class Graph extends JPanel{
 		File file;
 		Graphics2D g2d = (Graphics2D) g;
 		
-		
 		if(mapToPrint.getMatrix()[x][y-1].retCoord().retZ() > mapToPrint.getMatrix()[x][y].retCoord().retZ()){
 			file = new File("C:\\Users\\Crejzer\\workspace\\MassiveMultiplaerOnline\\grafiki\\101.png");
 			try {

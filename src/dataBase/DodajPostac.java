@@ -57,11 +57,10 @@ public class DodajPostac extends HttpServlet {
 			Statement statement = conn.createStatement();
 			statement.execute(query);
 			conn.close();
-			response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/aliorbank.pl/hades/do/Game.jsp");
+			response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/WyborPostaci.jsp");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }
