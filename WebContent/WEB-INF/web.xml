@@ -34,9 +34,10 @@
     <servlet-name>AddToDataBase</servlet-name>
     <url-pattern>/aliorbank.pl/hades/do/AddToDataBase</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>DodajPostac</servlet-name>
-    <url-pattern>/aliorbank.pl/hades/do/DodajPostac</url-pattern>
+    <url-pattern>/massive/hades/do/DodajPostac</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Json</servlet-name>

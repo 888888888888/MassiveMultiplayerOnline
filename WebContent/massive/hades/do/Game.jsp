@@ -28,7 +28,7 @@
  	}
  %>
  	
-	<img hspace=150% vspace=150% style="width: 10%;" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
+	<img hspace=150% vspace=150% style="width: 20%;" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
  
 </div>
 
