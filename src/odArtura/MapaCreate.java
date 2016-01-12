@@ -31,30 +31,31 @@ public class MapaCreate {
 	    Graphics g = bi.createGraphics();
 		
 	    int height;
-        for (int i = 0; i <= 20; i++) {         
-            for (int j = 0; j <= 20; j++) {
+        for (int i = 0; i <= 10; i++) {         
+            for (int j = 0; j <= 10; j++) {
             	
-            	int ix = (i*20)+x;
-            	int jy = (j*20)+y;
-            	height = mapToPrint.getMatrix()[ix][jy].retId();
+            	int ix = i*40;
+            	int jy = j*40;
+            	
+            	height = mapToPrint.getMatrix()[ix+x][jy+y].retId();
             	if(height<25&&height>0){
             		g.setColor(new Color(height*10,255,0)); 
-            		g.fillRect(ix, jy, 20,20);
+            		g.fillRect(ix, jy, 40,40);
             	}else if(height>=25&& height<50){
             		g.setColor(new Color(255,255-(height-25)*10,0)); 
-            		g.fillRect(ix, jy, 20,20);
+            		g.fillRect(ix, jy, 40,40);
             	}else if(height==50){
             		g.setColor(new Color(255,0,0)); 
-            		g.fillRect(ix, jy, 20,20);
+            		g.fillRect(ix, jy, 40,40);
             	}else if(mapToPrint.getMatrix()[i][j].retId()==3564){
                 	g.setColor(Color.BLUE);
-                	g.fillRect(ix, jy, 20,20);
+                	g.fillRect(ix, jy, 40,40);
                 }else if (mapToPrint.getMatrix()[i][j].retId()==0) {  
                 	g.setColor(Color.BLUE); 
-                	g.fillRect(ix, jy, 20,20);        
+                	g.fillRect(ix, jy, 40,40);        
                 }else {
                 	g.setColor(Color.BLUE); 
-                	g.fillRect(ix, jy, 20,20);
+                	g.fillRect(ix, jy, 40,40);
                 }
             }
         }
