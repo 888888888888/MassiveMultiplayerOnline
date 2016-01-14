@@ -9,39 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>ChallangeServlet</servlet-name>
-    <servlet-class>javaWeb.serwer.ChallengeServlet</servlet-class>
-  </servlet>
-  <servlet>
+   <servlet>
     <servlet-name>DodajPostac</servlet-name>
     <servlet-class>dataBase.DodajPostac</servlet-class>
   </servlet>
   
   <servlet>
-    <servlet-name>AddToDataBase</servlet-name>
-    <servlet-class>javaWeb.serwer.AddToDataBase</servlet-class>
+  	<servlet-name>GameServlet</servlet-name>
+  	<servlet-class>odArtura.GameServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>Json</servlet-name>
-    <servlet-class>javaWeb.serwer.Json</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChallangeServlet</servlet-name>
-    <url-pattern>/aliorbank.pl/hades/do/challenge</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddToDataBase</servlet-name>
-    <url-pattern>/aliorbank.pl/hades/do/AddToDataBase</url-pattern>
-  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>DodajPostac</servlet-name>
     <url-pattern>/massive/hades/do/DodajPostac</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
-    <servlet-name>Json</servlet-name>
-    <url-pattern>/aliorbank.pl/hades/do/json</url-pattern>
+    <servlet-name>GameServlet</servlet-name>
+    <url-pattern>/massive/hades/do/Game</url-pattern>
   </servlet-mapping>
   
   <resource-ref>

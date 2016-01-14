@@ -196,7 +196,6 @@ function wyswietlAvatar(i){
 	<div class="boxBody">
 	
 		<!-- tworzenie polaczenia z baza danych -->
-		
 		<sql:setDataSource var="baza" driver="com.mysql.jdbc.Driver"
 			url="jdbc:mysql://127.0.0.1/massive" user="root" password=""/>
 

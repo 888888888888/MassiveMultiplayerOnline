@@ -41,8 +41,9 @@ public class GameServlet extends HttpServlet {
     	
     	int x = Integer.valueOf(req.getParameter("x"));
     	int y = Integer.valueOf(req.getParameter("y"));
+    	String idGracza = req.getParameter("id");
 		
-		exe.execute( new FutureTask<String>(new ObslugaKlienta(x, y)){
+		exe.execute( new FutureTask<String>(new ObslugaKlienta(x, y, idGracza)){
 			public void done(){
 				
 				try {
@@ -56,6 +57,6 @@ public class GameServlet extends HttpServlet {
 			}
 		});	
 		
-		res.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game.jsp?id=8&flaga=true");
+		res.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game.jsp?x="+x+"&y="+y+"&id="+idGracza+"&flaga=true");
     }
 }

@@ -90,43 +90,6 @@
 
 </head>
 <body onload="init();">
-
-<div id="serviceAreaBg">
-	<div id="serviceArea">
-			<script>
-				function setLocale(locale,node)
-				{var form = dijit.range.getAncestor(node, /form/i);
-				dojo.byId("p_LNG_ID").value=locale;
-				form.submit();}
-				</script>
-
-			<div id="serverNo">
-				serwer:&nbsp;aib14
-			</div>
-
-	<form name="LangSelectForm" method="POST" action="https://aliorbank.pl/hades/do/LangSelect"><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="7595366531b6ee2cdaf32558d059e53e"></div>
-	
-	<input type="hidden" name="p_LNG_ID" value="0" id="p_LNG_ID">
-
-	
-		<div style="margin: 0 auto;">
-	<ul>
-	<li class="ending">
-					<a id="change_locale" href="#" title="" style="align">
-						
-									<span id="en" onclick="setLocale('1',this)" title="">
-							LANGUAGE&nbsp;<img class="mvalign" style="padding-bottom:2px;" src="../img/en.gif" /></span>
-						
-							
-
-				</a>
-				</li>
-				</ul>
-			</div>
-	
-	 </form>
-	</div>
-</div>
 <div id="headerArea" style="height: 119px; width: 100%; margin: 0 auto; text-align: center;">
 			<div style="margin: 0 auto; padding-top: 40px; width: 1000px;">
 			

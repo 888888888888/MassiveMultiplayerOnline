@@ -67,8 +67,6 @@ public class MapaCreate {
 			e.printStackTrace();
 		}
         
-//        System.out.println("koniec! " + text);
-        
         return mapa;
 	}
 

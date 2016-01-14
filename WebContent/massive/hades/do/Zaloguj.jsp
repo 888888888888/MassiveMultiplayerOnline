@@ -25,7 +25,7 @@
 	});
 	</script>
 
-<title>Bankowość internetowa</title>
+<title>Massive Multipler Online</title>
 
 </head>
 <body>
@@ -34,7 +34,7 @@
 				<a id="logo" href="http://www.aliorbank.pl/pl/" target="_blank" title="" style="float: left"><img src="../img/logo.png" alt="" title="" /></a>
 				<span style="font-size:26px; color:#737272; margin-top: 5px; float: right;">
 				
-					Witaj w systemie bankowości internetowej <b>Alior Banku</b>
+					<b>Massive Multipler Online</b>
 				
 				
 				</span>
@@ -47,7 +47,7 @@
 <div id="mainArea">
 	<div class="box type2">
 		<div class="boxHeader">
-		<h2>Logowanie do systemu bankowości Alior Bank</h2>
+		<h2>Zaloguj</h2>
 		</div>
 		<div class="boxBody">
 			<div class="boxBodyContent" style="height: 160px;">

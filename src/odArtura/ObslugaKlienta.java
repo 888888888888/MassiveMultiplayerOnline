@@ -17,11 +17,13 @@ public class ObslugaKlienta implements Callable<String>{
 	
 	private int x;
 	private int y;
+	private String idGracza;
 	private static WorldMap2 mapToPrint = null;
 	
-	public ObslugaKlienta(int x, int y) {
+	public ObslugaKlienta(int x, int y, String idGracza) {
 		this.x = x;
 		this.y = y;
+		this.idGracza = idGracza;
 		
 		//Singleton (tworze tylko jeden obiekt mapToPrint na cale dzialanie programu)
 		if(mapToPrint == null){
@@ -39,7 +41,7 @@ public class ObslugaKlienta implements Callable<String>{
 		//generuje mape do pliku mapa.png
 		mapa.generateMap();
 		
-		return null;
+		return idGracza;
 	}
 	
 //	public static void main(String[] arg){
