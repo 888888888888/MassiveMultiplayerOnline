@@ -114,7 +114,7 @@ public class ClientDb {
 		byte[] buffer = new byte[2024];
 		
 		try {
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE Avatar_ID = (SELECT Avatar_ID FROM champ WHERE Avatar_ID = ?);");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE Avatar_ID = (SELECT Avatar_ID FROM champ WHERE champ_id = ?);");
 			statement.setInt(1,id);
 			statement.execute();
 			

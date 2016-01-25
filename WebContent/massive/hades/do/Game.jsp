@@ -7,8 +7,24 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MASSIVE MULTIPLAYER ONLINE</title>
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache,no-store">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache,no-store,must-revalidate">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<meta http-equiv="refresh" content="30">
+
+<LINK href="../css/gameTheme.css" type=text/css rel=stylesheet>
+
+<link href="../css/walkaButton/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+	<script  type="text/javascript" src="../js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom.js"></script>
+		
+<script>
+	$(function() {
+		$( "#button").button();
+	});
+</script>
 
 <script type="text/javascript">
 
@@ -74,12 +90,13 @@ function dPress(x,y,id){
 
 </script>
 
+<title>MASSIVE MULTIPLAYER ONLINE</title>
 </head>
 <body>
 <% 
-String idString = request.getParameter("id");
-String x = request.getParameter("x");
-String y = request.getParameter("y");
+	String idString = request.getParameter("id");
+	String x = request.getParameter("x");
+	String y = request.getParameter("y");
 %>
 <!-- NIE WIEM CZEMU ROBI TE MARGINESY Z LEWEJ I Z GORY! -->
 <div id ="poleGry" onkeypress="keyListenner(event,<%=x%>,<%=y%>,<%=idString %>);" style="height: 400px; width:400px; float:left; border-style:double; background-image: url(C:\\Users\\Crejzer\\Desktop\\eclipse\\mapa.png)">
@@ -97,16 +114,29 @@ String y = request.getParameter("y");
  		response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game?id="+String.valueOf(id)+"&x=20&y=20");
  	}
  %>
-	<img hspace=150% vspace=150% style="width: 20%;" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
+	<img class="keyboard" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
  
 </div>
 
-<div id ="log" style=" float:left; padding:10px;">
- LOGI GRY:
+<div id="content" style="float: left; display: inline; width: 10px; padding-left: 10px;">
+<div id="mainArea">
+<div class="box type1">
+	<div class="boxHeader">
+		<h2>Logi Gry </h2>
+	</div>
+	<div class="boxBody">
+		<div id="log" class="boxBodyContent" style="height: 365px;">
+
+       	</div>
+	</div>
+</div>
+</div>
 </div>
 
-<div id = "akcja" style="clear:both; padding:5px;">
-AKCJA 
+<div id = "akcja" style="clear:both">
+	<form style="margin-left: 150px" method="post" action="walcz">	
+    			<input id="button" type="submit" value="Walcz">
+    </form>
 </div>
 
 </body>

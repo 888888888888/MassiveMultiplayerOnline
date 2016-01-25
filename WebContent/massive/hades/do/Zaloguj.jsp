@@ -12,7 +12,7 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache,no-store,must-revalidate">
 <META HTTP-EQUIV="Expires" CONTENT="-1">
 
-<LINK href="../css/loginb9db.css?v=fa2264593e70e00982a67d73d1d86a3173bab741" type=text/css rel=stylesheet>
+<LINK href="../css/loginb9db.css" type=text/css rel=stylesheet>
 
 <link href="../css/aliorTheme/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 	<script  type="text/javascript" src="../js/jquery-1.10.2.js"></script>
