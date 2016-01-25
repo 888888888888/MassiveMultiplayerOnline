@@ -1,15 +1,3 @@
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache,no-store">
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache,no-store,must-revalidate">
-<META HTTP-EQUIV="Expires" CONTENT="-1">
-<meta http-equiv="refresh" content="30">
-
-<LINK href="../css/loginb9db.css?v=fa2264593e70e00982a67d73d1d86a3173bab741" type=text/css rel=stylesheet>
-
-<link href="../css/jquery-ui-1.12.0-beta.1.custom/jquery-ui.css" rel="stylesheet">
-	<script  type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-	<script type="text/javascript" src="../js/jquery-ui-1.10.4.custom.js"></script>
-
-
 <servlet>
   	<servlet-name>GameServlet</servlet-name>
   	<servlet-class>odArtura.GameServlet</servlet-class>

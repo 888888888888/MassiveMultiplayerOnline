@@ -17,7 +17,7 @@
 <META HTTP-EQUIV="Expires" CONTENT="-1">
 <meta http-equiv="refresh" content="30">
 
-<LINK href="../css/loginb9db.css" type=text/css rel=stylesheet>
+<LINK href="../css/loginb9db.css?v=fa2264593e70e00982a67d73d1d86a3173bab741" type=text/css rel=stylesheet>
 
 <link href="../css/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
 	<script  type="text/javascript" src="../js/jquery-1.10.2.js"></script>
@@ -191,7 +191,7 @@ function wyswietlAvatar(i){
 <div id="mainArea">
 	<div class="box type1">
 		<div class="boxHeader">
-		<h2>Wybor Postaci </h2>
+		<h2>Wybor Postaci</h2>
 		</div>
 	<div class="boxBody">
 	
@@ -221,7 +221,7 @@ function wyswietlAvatar(i){
 					   		<th style="padding: 5px; width: 80px; text-align:center;">KLASA</th>
 						</tr>
 						<c:forEach var="row" items="${postac.rows}">
-							<tr onclick="sendAdres(${row.champ_id})">
+							<tr onclick="sendAdres(${row.User_id})">
 								<td><ul id="<c:out value="${row.Avatar_Id}"/>"></ul>
 									<script>
 										wyswietlAvatar(<c:out value="${row.Avatar_Id}"/>)
@@ -318,6 +318,7 @@ function wyswietlAvatar(i){
   									<option value="zlodziej">Zlodziej</option>
   									 		
 								</select>
+								
 								<input type="hidden" id="wybranyAvatar" name="avatar">
 								<input type="hidden" value="<c:out value="${sessionScope.user.login}"/>" name="login">
 							</div>
