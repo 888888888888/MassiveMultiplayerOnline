@@ -200,12 +200,11 @@ function wyswietlAvatar(i){
 			url="jdbc:mysql://127.0.0.1/massive" user="root" password=""/>
 
 		<sql:query dataSource="${baza}" var="postac">
-			SELECT * from Champion where IDUSER = (SELECT IDUSER FROM User WHERE login = '<c:out value="${sessionScope.user.login}"/>');
+			SELECT * from champ where User_id = (SELECT User_ID FROM Users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
 		</sql:query>
-		
 		<!-- pobieranie liczby rekordow znajdujacych sie w danym oddziale aby rozszerzac szare tlo  -->			
 		<sql:query dataSource="${baza}" var="lenght">
-			SELECT COUNT(*) from Champion where (SELECT IDUSER FROM User WHERE login = '<c:out value="${sessionScope.user.login}"/>');
+			SELECT COUNT(*) from champ where (SELECT User_id FROM Users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
 		</sql:query>
 							
 	<div id="table" class="boxBodyContent">
@@ -222,17 +221,23 @@ function wyswietlAvatar(i){
 					   		<th style="padding: 5px; width: 80px; text-align:center;">KLASA</th>
 						</tr>
 						<c:forEach var="row" items="${postac.rows}">
-							<tr onclick="sendAdres(${row.IDCHAMPION})">
-								<td><ul id="<c:out value="${row.IDAVATAR}"/>"></ul>
-									<script>11
-										wyswietlAvatar(<c:out value="${row.IDAVATAR}"/>)
+							<tr onclick="sendAdres(${row.User_id})">
+								<td><ul id="<c:out value="${row.Avatar_Id}"/>"></ul>
+									<script>
+										wyswietlAvatar(<c:out value="${row.Avatar_Id}"/>)
 									</script>
 								</td>
-								<td><c:out value="${row.IMIE}"/></td>
-								<td style="text-align:center;"><c:out value="${row.KLASA}"/></td>
+								<td><c:out value="${row.Name}"/></td>
+								<td style="text-align:center;"><c:out value="${row.Class}"/></td>
 							</tr>
 						</c:forEach>
 					</table>
+					
+					<form style="margin-top: 15px" method="post" action="odbierzKredyt">
+					
+    					<input id="button" type="submit" value="Odbierz Kredyt">
+    				</form>
+					
     				<div style="float:left;display:inline-block; margin-top: 12.5px">
 					<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all" style="color:#000000"><span class="ui-icon ui-icon-newwin"></span><b>UTWORZ NAWA POSTAC</b></a></p>
 					
@@ -314,7 +319,7 @@ function wyswietlAvatar(i){
   									 		
 								</select>
 								
-								<input type = "hidden" id="wybranyAvatar" name="avatar">
+								<input type="hidden" id="wybranyAvatar" name="avatar">
 								<input type="hidden" value="<c:out value="${sessionScope.user.login}"/>" name="login">
 							</div>
 							<input class="logowanie" type="submit" value="OK"/>  

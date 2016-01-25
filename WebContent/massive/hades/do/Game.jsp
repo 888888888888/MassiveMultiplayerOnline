@@ -18,36 +18,57 @@ function keyListenner(event,x,y,id) {
 
     if(eventID == 119){
 
-      wPress(x,y,id);
+		wPress(x,y,id);
     } else if (eventID == 115){
        
-      sPress(x,y,id);
+		sPress(x,y,id);
     } else if (eventID == 97){
-
-      aPress(x,y,id);
+		
+		aPress(x,y,id);
     } else if (eventID == 100){
-
-      dPress(x,y,id);
+		
+		dPress(x,y,id);
     }
 }
 
 function wPress(x,y,id){
-	tmpY = y - 40
+	
+	tmpY = y - 40;	
+	if (tmpY < 0){
+		tmpY = 0;
+	}
+	
 	window.location.replace("Game?id="+id+"&x="+x+"&y="+tmpY);
 }
 
 function sPress(x,y,id){
+	
 	tmpY = y + 40;
+	if (tmpY > 400){
+		
+		tmpY = 380;
+	}
+	
 	window.location.replace("Game?id="+id+"&x="+x+"&y="+tmpY);
 }
 
 function aPress(x,y,id){
+	
 	tmpX = x - 40;
+	if (tmpX < 0){
+		tmpX = 0;
+	}
+	
 	window.location.replace("Game?id="+id+"&x="+tmpX+"&y="+y);
 }
 
 function dPress(x,y,id){
+	
 	tmpX = x + 40;
+	if(tmpX > 400){
+		tmpX = 380;
+	}
+	
 	window.location.replace("Game?id="+id+"&x="+tmpX+"&y="+y);
 }
 
@@ -76,7 +97,6 @@ String y = request.getParameter("y");
  		response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game?id="+String.valueOf(id)+"&x=20&y=20");
  	}
  %>
- 	
 	<img hspace=150% vspace=150% style="width: 20%;" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
  
 </div>

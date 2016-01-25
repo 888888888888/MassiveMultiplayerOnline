@@ -12,13 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * This class illustrates the usage of Servlet 3.0 asynchronization APIs.
- * It is ported from Grizzly Comet sample and use Servlet 3.0 API here.
- *
- * @author Shing Wai Chan
- * @author JeanFrancois Arcand
- */
 @WebServlet(name = "gameServlet", urlPatterns = {"/massive/hades/do/game"}, asyncSupported = true)//path to servlet 
 
 public class GameServlet extends HttpServlet {

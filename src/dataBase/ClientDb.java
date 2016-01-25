@@ -57,7 +57,7 @@ public class ClientDb {
 		DataSource result = new DataSource();
 		try {
 		
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT * FROM User WHERE LOGIN = ?");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT * FROM Users WHERE LOGIN = ?");
 			statement.setString(1, Login);
 			java.sql.ResultSet resultset = null;
 			resultset = statement.executeQuery();
@@ -94,7 +94,7 @@ public class ClientDb {
 	public boolean toDB(String login,String password) throws SQLException{
 		PreparedStatement prepStmt;
 		try {
-			prepStmt = conn.prepareStatement("insert into User (LOGIN, PASSWORD) values (?,?);");
+			prepStmt = conn.prepareStatement("INSERT INTO Users (Login, Password, LoginStatus, privilege) VALUES(?,?,0,'user')");
 			prepStmt.setString(1,login);
 			prepStmt.setString(2,password);
 			prepStmt.execute();
@@ -114,7 +114,7 @@ public class ClientDb {
 		byte[] buffer = new byte[2024];
 		
 		try {
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE idAvatar = (SELECT idAvatar FROM champion WHERE idChampion = ?)");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE Avatar_ID = (SELECT Avatar_ID FROM champ WHERE Avatar_ID = ?);");
 			statement.setInt(1,id);
 			statement.execute();
 			
@@ -183,7 +183,7 @@ public class ClientDb {
 		
 		try {
 			
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT IdUser FROM User WHERE login = ?");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT User_ID FROM users WHERE login = ?");
 			statement.setString(1, Login);
 			java.sql.ResultSet resultset = null;
 			resultset = statement.executeQuery();
