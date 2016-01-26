@@ -108,7 +108,6 @@
 
                 <jsp:setProperty name="user" property="login" value="" />
                 <jsp:setProperty name="user" property="password" value="" />
-                <jsp:setProperty name="user" property="totp" value="" />
                 
 				<h2 class="logowanie">
 					<form method="post" action="Zaloguj.jsp">

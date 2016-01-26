@@ -100,44 +100,37 @@ public class ClientDb {
 			prepStmt.execute();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return false;
 		} 
 		return true; 
 	}
 	
-	public void getAvatarById(int id) throws IOException {
+	public void getAvatarById(int id) throws IOException, SQLException {
 		System.out.println(id);
 		File newFile;
 		FileOutputStream out;
 		InputStream input;
 		byte[] buffer = new byte[2024];
-		
-		try {
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT src FROM avatar WHERE Avatar_ID = (SELECT Avatar_ID FROM champ WHERE champ_id = ?);");
-			statement.setInt(1,id);
-			statement.execute();
-			
-			java.sql.ResultSet resultset = null;
-			resultset = statement.executeQuery();
-			
-			while(resultset.next()){
-				
-				input = resultset.getBinaryStream("src");
-				
-				newFile = new File("AvatarCurrent.png");
-				out = new FileOutputStream(newFile);
-				
-				while (input.read(buffer) > 0){
-					
-					out.write(buffer);
-				}
-			}
-			
-			System.out.println("przeszlo!");
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		java.sql.PreparedStatement statement = conn.prepareStatement(
+				"SELECT src FROM avatar WHERE Avatar_ID = (SELECT Avatar_ID FROM champ WHERE champ_id = ?);");
+		statement.setInt(1, id);
+		statement.execute();
+
+		java.sql.ResultSet resultset = null;
+		resultset = statement.executeQuery();
+
+		while (resultset.next()) {
+
+			input = resultset.getBinaryStream("src");
+
+			newFile = new File("AvatarCurrent.png");
+			out = new FileOutputStream(newFile);
+
+			while (input.read(buffer) > 0) {
+
+				out.write(buffer);
+			}
 		}
 	}
 	
@@ -206,27 +199,21 @@ public class ClientDb {
 	 * @return
 	 * @throws IOException 
 	 */
-//	public boolean deleteFromDB(String login){
-//	    PreparedStatement prepStmt;
-//	    try {
-//	    	  
-//	    	prepStmt = conn.prepareStatement("DELETE FROM ActivUsersPerOddzial WHERE ID_ACT = "
-//	    	+"(SELECT ID_ACT FROM ActivUsers WHERE Login = ?);");
-//	    	prepStmt.setString(1,login);
-//	    	prepStmt.execute();
-//
-//	        prepStmt = conn.prepareStatement("DELETE from ActivUsers where Login = ?;");
-//	        prepStmt.setString(1,login);
-//	        prepStmt.execute();
-//
-//	    } catch (SQLException e) {
-//	        // TODO Auto-generated catch block
-//	        e.printStackTrace();
-//	        return false;
-//	    }
-//	    return true;
-//	}
-//	
+	public boolean deleteFromDB(String login){
+	    PreparedStatement prepStmt;
+	    try {
+
+	        prepStmt = conn.prepareStatement("DELETE from Users where Login = ?;");
+	        prepStmt.setString(1,login);
+	        prepStmt.execute();
+
+	    } catch (SQLException e) {
+	        // TODO Auto-generated catch block
+	        return false;
+	    }
+	    return true;
+	}
+	
 //	/**
 //	 * Funkcja zwracajaca wszystkich uzytkownikow (i dane o nich) z bd, wykorzystywane w mechanizmie challengu
 //	 * @param login
