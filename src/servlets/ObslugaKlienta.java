@@ -1,4 +1,4 @@
-package odArtura;
+package servlets;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -43,13 +43,4 @@ public class ObslugaKlienta implements Callable<String>{
 		
 		return idGracza;
 	}
-	
-//	public static void main(String[] arg){
-//		
-//		ExecutorService exe = Executors.newFixedThreadPool(10);
-//		//y zwiekszanie zchodzi w dol, x w prawo
-//		exe.execute(new FutureTask<String>(new ObslugaKlienta(20, 20)));
-////		exe.execute(new FutureTask<String>(new ObslugaKlienta(128, 152, "map2.png")));
-//	}
-	
 }

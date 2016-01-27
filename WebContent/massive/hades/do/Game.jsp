@@ -1,4 +1,4 @@
-<%@page import="odArtura.GameServlet"%>
+<%@page import="servlets.*"%>
 <%@page import="dataBase.ClientDb"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -88,11 +88,24 @@ function dPress(x,y,id){
 	window.location.replace("Game?id="+id+"&x="+tmpX+"&y="+y);
 }
 
+function walcz(event, liczba1, liczba2) {
+
+    if (event.shiftKey) {
+    	if (liczba1 > liczba2){
+        	document.getElementById("avatar").style.visibility = "hidden";
+        	document.getElementById("log").innerHTML = "Przegrales";
+        } else {
+        	document.getElementById("potwor").style.visibility = "hidden";
+        	document.getElementById("log").innerHTML = "Wygrales";
+        }
+    } 
+}
+
 </script>
 
 <title>MASSIVE MULTIPLAYER ONLINE</title>
 </head>
-<body>
+<body onkeydown="walcz(event,<%=request.getParameter("liczba1")%>,<%=request.getParameter("liczba2")%>)">
 <% 
 	String idString = request.getParameter("id");
 	String x = request.getParameter("x");
@@ -114,13 +127,14 @@ function dPress(x,y,id){
  		response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game?id="+String.valueOf(id)+"&x=20&y=20");
  	}
  %>
-	<img class="keyboard" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
+	<img id = "avatar" style="width: 100px; padding-top: 100px; padding-left: 100px" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
+	<img id = "potwor" style = "padding-left: 10px; width: 100px"  src="https://t2.ftcdn.net/jpg/00/97/42/29/500_F_97422960_Cfy5YQaSs26hMHSmKyu6YklLFI54jFVl.jpg"/>
  
 </div>
 
 <div id="content" style="float: left; display: inline; width: 10px; padding-left: 10px;">
 <div id="mainArea">
-<div class="box type1">
+<div class="box type2">
 	<div class="boxHeader">
 		<h2>Logi Gry </h2>
 	</div>
@@ -135,6 +149,7 @@ function dPress(x,y,id){
 
 <div id = "akcja" style="clear:both">
 	<form style="margin-left: 150px" method="post" action="walcz">	
+				<input type="hidden" id = "id" value=<%=request.getParameter("id")%>>
     			<input id="button" type="submit" value="Walcz">
     </form>
 </div>

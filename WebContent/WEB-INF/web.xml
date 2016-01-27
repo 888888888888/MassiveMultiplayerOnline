@@ -9,26 +9,30 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-   <servlet>
+  <servlet>
     <servlet-name>DodajPostac</servlet-name>
     <servlet-class>dataBase.DodajPostac</servlet-class>
   </servlet>
-  
   <servlet>
-  	<servlet-name>GameServlet</servlet-name>
-  	<servlet-class>odArtura.GameServlet</servlet-class>
+    <servlet-name>Walcz</servlet-name>
+    <servlet-class>servlets.Walcz</servlet-class>
   </servlet>
-  
+  <servlet>
+    <servlet-name>GameServlet</servlet-name>
+    <servlet-class>servlets.GameServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>DodajPostac</servlet-name>
     <url-pattern>/massive/hades/do/DodajPostac</url-pattern>
   </servlet-mapping>
-  
   <servlet-mapping>
     <servlet-name>GameServlet</servlet-name>
     <url-pattern>/massive/hades/do/Game</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+    <servlet-name>Walcz</servlet-name>
+    <url-pattern>/massive/hades/do/walcz</url-pattern>
+  </servlet-mapping>
   <resource-ref>
     <description>DB Connection</description>
     <res-ref-name>jdbc/UsersDB</res-ref-name>

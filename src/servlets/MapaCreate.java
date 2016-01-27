@@ -1,4 +1,4 @@
-package odArtura;
+package servlets;
 
 import java.awt.Color;
 import java.awt.Graphics;

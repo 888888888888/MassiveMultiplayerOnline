@@ -189,7 +189,7 @@ function wyswietlAvatar(i){
 
 <div id="content" style="padding-top: 30px">
 <div id="mainArea">
-	<div class="box type1">
+	<div class="box type2">
 		<div class="boxHeader">
 		<h2>Wybor Postaci </h2>
 		</div>
