@@ -25,10 +25,9 @@ public class ClientDb {
 	 * Konstruktor tworzacy polaczenie z baz¹ danych
 	 */
 	public ClientDb() {
-	
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/massive", "root", "");	
+			conn = DriverManager.getConnection("jdbc:mysql://www.db4free.net:3306/koloapptest", "crejzer", "projekt");	
 		}
 		catch(Exception e) {
 			System.out.println("Blad bazy danych");
@@ -57,7 +56,7 @@ public class ClientDb {
 		DataSource result = new DataSource();
 		try {
 		
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT * FROM Users WHERE LOGIN = ?");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE Login = ?");
 			statement.setString(1, Login);
 			java.sql.ResultSet resultset = null;
 			resultset = statement.executeQuery();
@@ -94,7 +93,7 @@ public class ClientDb {
 	public boolean toDB(String login,String password) throws SQLException{
 		PreparedStatement prepStmt;
 		try {
-			prepStmt = conn.prepareStatement("INSERT INTO Users (Login, Password, LoginStatus, privilege) VALUES(?,?,0,'user')");
+			prepStmt = conn.prepareStatement("INSERT INTO users (Login, Password, LoginStatus, privilege) VALUES(?,?,0,'user')");
 			prepStmt.setString(1,login);
 			prepStmt.setString(2,password);
 			prepStmt.execute();
@@ -176,7 +175,7 @@ public class ClientDb {
 		
 		try {
 			
-			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT User_ID FROM users WHERE login = ?");
+			java.sql.PreparedStatement statement = conn.prepareStatement("SELECT User_ID FROM users WHERE Login = ?");
 			statement.setString(1, Login);
 			java.sql.ResultSet resultset = null;
 			resultset = statement.executeQuery();
@@ -203,7 +202,7 @@ public class ClientDb {
 	    PreparedStatement prepStmt;
 	    try {
 
-	        prepStmt = conn.prepareStatement("DELETE from Users where Login = ?;");
+	        prepStmt = conn.prepareStatement("DELETE from users where Login = ?;");
 	        prepStmt.setString(1,login);
 	        prepStmt.execute();
 

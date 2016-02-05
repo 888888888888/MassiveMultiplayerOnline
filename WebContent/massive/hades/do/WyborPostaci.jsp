@@ -197,14 +197,14 @@ function wyswietlAvatar(i){
 	
 		<!-- tworzenie polaczenia z baza danych -->
 		<sql:setDataSource var="baza" driver="com.mysql.jdbc.Driver"
-			url="jdbc:mysql://127.0.0.1/massive" user="root" password=""/>
+			url="jdbc:mysql://www.db4free.net:3306/koloapptest" user="crejzer" password="projekt"/>
 
 		<sql:query dataSource="${baza}" var="postac">
-			SELECT * from champ where User_id = (SELECT User_ID FROM Users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
+			SELECT * from champ where User_id = (SELECT User_ID FROM users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
 		</sql:query>
 		<!-- pobieranie liczby rekordow znajdujacych sie w danym oddziale aby rozszerzac szare tlo  -->			
 		<sql:query dataSource="${baza}" var="lenght">
-			SELECT COUNT(*) from champ where (SELECT User_id FROM Users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
+			SELECT COUNT(*) from champ where (SELECT User_id FROM users WHERE Login = '<c:out value="${sessionScope.user.login}"/>');
 		</sql:query>
 							
 	<div id="table" class="boxBodyContent">
@@ -247,16 +247,16 @@ function wyswietlAvatar(i){
 								Avatar:<br/>
 								
 								<div id="ramka1" style = "padding-top: 35px; display: inline">
-								<img id="avatar1"src="C:\\Users\\Crejzer\\workspace\\MassiveMultiplaerOnline\\Avatar1.png"
+								<img id="avatar1"src="Avatar1.png"
 									width="50px" height="50px" /> </div>
 		
 								<div id="ramka2" style = "padding-top: 35px; display: inline">
-								<img id="avatar2" src="C:\\Users\\Crejzer\\workspace\\MassiveMultiplaerOnline\\Avatar2.png"
+								<img id="avatar2" src="Avatar2.png"
 									width="50px" height="50px"/>
 								</div>
 										
 								<div id="ramka3" style = "padding-top: 35px; display: inline">			
-								<img id="avatar3" src="C:\\Users\\Crejzer\\workspace\\MassiveMultiplaerOnline\\Avatar3.png"
+								<img id="avatar3" src="Avatar3.png"
 									width="50px" height="50px" /> 
 								</div><br />
 								

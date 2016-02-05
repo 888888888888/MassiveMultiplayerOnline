@@ -1,5 +1,9 @@
 package mapUtilities;
+
 import java.util.*;
+
+import mapObjects.Tree;
+
 import java.math.*;
 /**
  * This class implements World map. 
@@ -35,6 +39,23 @@ public class WorldMap2{
 			randomSeeds((int)Math.sqrt(size.getX()),i+2,(i+2),(i+1));
 			growSeeds((int)(count),i+2,(i+2),(i+1));
 			System.out.println(i);
+		}
+		placeTrees(3000);
+	}
+	
+	private void placeTrees(int seedCount){
+		System.out.println("robie dzewo");
+		Random random = new Random();
+		int seedx;
+		int seedy;
+		int trees;
+		while(seedCount>0){
+			seedx = random.nextInt((int)(size.getX()*0.9))+(int)(size.getX()*0.05);
+			seedy = random.nextInt((int)(size.getY()*0.9))+(int)(size.getY()*0.05);
+			if(matrix[seedx][seedy].retId() != 0){
+					matrix[seedx][seedy].addObject(new Tree(89, 3)); //temp id for the tree = 89, growthstage = 3...for now
+			}
+			seedCount--;
 		}
 	}
 	/**

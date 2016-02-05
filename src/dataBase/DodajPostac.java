@@ -46,12 +46,12 @@ public class DodajPostac extends HttpServlet {
 		String klasa = request.getParameter("klasa");
 		int avatar = Integer.valueOf(request.getParameter("avatar"));
 		
-		String query = "INSERT INTO champ (User_id, Name, PosX, PosY, Gold, Class , Avatar_ID) VALUES   ((SELECT User_ID FROM Users WHERE Login = '"+login+"'), '" + imie + "', 20, 20, 200, '" + klasa + 
+		String query = "INSERT INTO champ (User_id, Name, PosX, PosY, Gold, Class , Avatar_ID) VALUES   ((SELECT User_ID FROM users WHERE Login = '"+login+"'), '" + imie + "', 20, 20, 200, '" + klasa + 
 				"',"+avatar+ ");";
 		
         try {
         	Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/massive", "root", "");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://www.db4free.net:3306/koloapptest", "crejzer", "projekt");	
 			
 			Statement statement = conn.createStatement();
 			statement.execute(query);

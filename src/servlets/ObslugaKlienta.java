@@ -27,7 +27,7 @@ public class ObslugaKlienta implements Callable<String>{
 		
 		//Singleton (tworze tylko jeden obiekt mapToPrint na cale dzialanie programu)
 		if(mapToPrint == null){
-			mapToPrint = new WorldMap2(800, 800);
+			mapToPrint = new WorldMap2(100, 100);
 			mapToPrint.create();
 		}
 	}

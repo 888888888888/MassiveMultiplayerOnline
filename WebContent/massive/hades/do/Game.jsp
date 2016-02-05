@@ -49,7 +49,7 @@ function keyListenner(event,x,y,id) {
 
 function wPress(x,y,id){
 	
-	tmpY = y - 40;	
+	tmpY = y - 1;	
 	if (tmpY < 0){
 		tmpY = 0;
 	}
@@ -59,10 +59,10 @@ function wPress(x,y,id){
 
 function sPress(x,y,id){
 	
-	tmpY = y + 40;
-	if (tmpY > 400){
+	tmpY = y + 1;
+	if (tmpY > 100){
 		
-		tmpY = 380;
+		tmpY = 100;
 	}
 	
 	window.location.replace("Game?id="+id+"&x="+x+"&y="+tmpY);
@@ -70,7 +70,7 @@ function sPress(x,y,id){
 
 function aPress(x,y,id){
 	
-	tmpX = x - 40;
+	tmpX = x - 1;
 	if (tmpX < 0){
 		tmpX = 0;
 	}
@@ -80,9 +80,9 @@ function aPress(x,y,id){
 
 function dPress(x,y,id){
 	
-	tmpX = x + 40;
-	if(tmpX > 400){
-		tmpX = 380;
+	tmpX = x + 1;
+	if(tmpX > 100){
+		tmpX = 100;
 	}
 	
 	window.location.replace("Game?id="+id+"&x="+tmpX+"&y="+y);
@@ -124,10 +124,10 @@ function walcz(event, liczba1, liczba2) {
  	boolean flaga = Boolean.valueOf(request.getParameter("flaga"));
  	
  	if(flaga == false){
- 		response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game?id="+String.valueOf(id)+"&x=20&y=20");
+ 		response.sendRedirect("http://localhost:8080/MassiveMultiplaerOnline/massive/hades/do/Game?id="+String.valueOf(id)+"&x=40&y=40");
  	}
  %>
-	<img id = "avatar" style="width: 100px; padding-top: 100px; padding-left: 100px" src="C:\\Users\\Crejzer\\Desktop\\eclipse\\AvatarCurrent.png"/>
+	<img id = "avatar" style="width: 100px; padding-top: 100px; padding-left: 100px" src="AvatarCurrent.png"/>
 	<img id = "potwor" style = "padding-left: 10px; width: 100px"  src="https://t2.ftcdn.net/jpg/00/97/42/29/500_F_97422960_Cfy5YQaSs26hMHSmKyu6YklLFI54jFVl.jpg"/>
  
 </div>
